@@ -143,6 +143,16 @@ class ProductPanel {
         $wrapper.height($(window).height() - TOP_BAR_HEIGHT - BOTTOM_BAR_HEIGHT);
 
         var iscroll = new IScroll($wrapper[0], { tap: true });
+        //=====================================================
+        if (site.env.isIOS) {
+            var $input = $(this.node).find('input[type="text"]');
+            $input.focus(function () {
+                console.log('input focus');
+                $(document).scrollTop(0);
+                $(document).scrollLeft(0);
+            });
+        }
+        //=====================================================
     }
 
     private page_closed = () => {
